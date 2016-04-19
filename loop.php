@@ -1,4 +1,4 @@
-$locations = new ASH_WP_Query_Geo([
+$locations = new WP_Query_Geo([
     'post_status' => 'publish',
     'post_type' => 'ash_locations', // cpt with locations stored
     'posts_per_page' => -1,

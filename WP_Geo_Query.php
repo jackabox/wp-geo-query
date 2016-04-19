@@ -1,4 +1,4 @@
-if( !class_exists( 'WP_Query_GEO' ) ) {
+if( ! class_exists( 'WP_Query_Geo' ) ) {
     class WP_Query_Geo extends WP_Query 
     {
         private $lat = NULL;
