@@ -1,3 +1,5 @@
+<?php
+
 if( ! class_exists( 'WP_Query_Geo' ) ) {
     class WP_Query_Geo extends WP_Query 
     {
@@ -49,7 +51,7 @@ if( ! class_exists( 'WP_Query_Geo' ) ) {
             $fields .= ", lng.meta_value AS longitude ";
         
             return $fields;
-        } // END public function posts_join($join, $query)
+        }
 
         /**
          * Makes joins as necessary in order to select lat/long metadata
@@ -62,7 +64,7 @@ if( ! class_exists( 'WP_Query_Geo' ) ) {
             $join .= " INNER JOIN {$wpdb->postmeta} AS lng ON {$wpdb->posts}.ID = lng.post_id ";
         
             return $join;
-        } // END public function posts_join($join, $query)
+        }
 
         /**
          * Adds where clauses to compliment joins
@@ -74,7 +76,7 @@ if( ! class_exists( 'WP_Query_Geo' ) ) {
             $where .= " HAVING distance < {$this->dist}";      
 
             return $where;
-        } // END public function posts_where($where)
+        }
       
         /**
          * order posts by distance, then any other term
@@ -86,7 +88,7 @@ if( ! class_exists( 'WP_Query_Geo' ) ) {
             $orderby = " distance ASC, " . $orderby;  
 
             return $orderby;
-        } // END public function posts_orderby($orderby)
+        }
 
         /**
          * remove the filters from the query (this ensures we can keep our other queries clean)
